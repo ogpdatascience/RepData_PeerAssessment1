@@ -1,12 +1,13 @@
-# Reproducible Research: Peer Assessment 1
+# Reproducible Research: Peer Assessment 1. Personal activity monitoring device data analysis.
+##Introduction
+Data from personal activity monitoring device was collected every 5 minutes through out the day. There is two months of data from an anonymous individual collected during two months in 2012,  October and November. In particular the number of steps taking by the individuals was recorded. Data analysis of it is reresented in this document.
+##Synopsis
+After loading the data and preproced it. The total of steps taken per day was calculated and presented in a histogram. Next the average daily daily activity pattern was analyzed and ploted. The data analysis was continue by inputing values to the NA values found. We add the mean of the 5 minutes interval to each missing value. Finally, the activity pattern between weekdays and weekend was analyzed and ploted.
+
+## Data Processing
 
 
-## Loading and preprocessing the data
-
-```
-## [1] "steps"    "date"     "interval"
-```
-
+##Results
 ## What is mean total number of steps taken per day?
 
 ```r
@@ -132,3 +133,7 @@ xyplot(steps ~ interval | week_days, data=steps_per_day_n, type = "l", layout = 
 
 ![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
+##Conclusions
+The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical anlysis have to be conducted to determined if these differences are significant.
+
+Thank you for reading this document!
