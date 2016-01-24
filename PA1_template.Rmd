@@ -2,9 +2,10 @@
 title: 'Reproducible Research: Peer Assessment 1. Personal activity monitoring device
   data analysis.'
 output:
+  word_document: default
+  pdf_document: default
   html_document:
     keep_md: yes
-  pdf_document: default
 ---
 ##Introduction
 Data from personal activity monitoring device was collected every 5 minutes through out the day. There is two months of data from an anonymous individual collected during two months in 2012,  October and November. In particular the number of steps taking by the individuals was recorded. Data analysis of it is reresented in this document.
@@ -21,7 +22,7 @@ days <- split(act, act$date)
 ```
 
 ##Results
-## What is mean total number of steps taken per day?
+# What is mean total number of steps taken per day?
 ```{r steps per day calculations}
 steps_per_day <- unlist(lapply(days, function(x){ sum(x$steps)}))
 mean_steps_per_day <- as.integer(mean(steps_per_day))
@@ -38,7 +39,7 @@ abline(v = median_steps_per_day, col="green")
 
 
 ## What is the average daily activity pattern?
-Make a time series plot (i.e. type = "l" ) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+1. Make a time series plot (i.e. type = "l" ) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 ```{r, echo=TRUE}
 min_5_interval <- split(act, act$interval)
 aver_min_5_interval <- unlist(lapply(min_5_interval, function(x){ mean(x$steps)}))
@@ -46,9 +47,13 @@ aver_min_5_interval <- unlist(lapply(min_5_interval, function(x){ mean(x$steps)}
 ```
 
 ```{r, echo=TRUE}
-plot(aver_min_5_interval, xlab = "5 minutes interval", ylab="Average number of steps", type= "l",  col = "blue", main = "Averaged of steps taking every 5 min across all days ")
-
+plot(names(aver_min_5_interval), aver_min_5_interval, xlab = "5 minutes interval", ylab="Average number of steps", type= "l",  col = "blue", main = "Averaged of steps taking every 5 min across all days ")
 ```
+2. Which 5-minute interval, on average accross all days in the dataset, contains the maximum number of steps?
+```{r, echo=TRUE}
+max_num_steps <- aver_min_5_interval[aver_min_5_interval==max(aver_min_5_interval)]
+```
+The `max_num_steps` 5-minutes interval contains the maximum number oof steps. 
 
 ## Imputing missing values
 Calculate de total number of rows with NA
@@ -119,6 +124,6 @@ xyplot(steps ~ interval | week_days, data=steps_per_day_n, type = "l", layout = 
 ```
 
 ##Conclusions
-The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical anlysis have to be conducted to determined if these differences are significant.
+The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical analysis have to be conducted to determined if these differences are significant.
 
 Thank you for reading this document!

@@ -8,7 +8,7 @@ After loading the data and preproced it. The total of steps taken per day was ca
 
 
 ##Results
-## What is mean total number of steps taken per day?
+# What is mean total number of steps taken per day?
 
 ```r
 steps_per_day <- unlist(lapply(days, function(x){ sum(x$steps)}))
@@ -25,11 +25,11 @@ abline(v = mean_steps_per_day,  col="red")
 abline(v = median_steps_per_day, col="green")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 
 ## What is the average daily activity pattern?
-Make a time series plot (i.e. type = "l" ) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+1. Make a time series plot (i.e. type = "l" ) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 ```r
 min_5_interval <- split(act, act$interval)
@@ -38,10 +38,16 @@ aver_min_5_interval <- unlist(lapply(min_5_interval, function(x){ mean(x$steps)}
 
 
 ```r
-plot(aver_min_5_interval, xlab = "5 minutes interval", ylab="Average number of steps", type= "l",  col = "blue", main = "Averaged of steps taking every 5 min across all days ")
+plot(names(aver_min_5_interval), aver_min_5_interval, xlab = "5 minutes interval", ylab="Average number of steps", type= "l",  col = "blue", main = "Averaged of steps taking every 5 min across all days ")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+2. Which 5-minute interval, on average accross all days in the dataset, contains the maximum number of steps?
+
+```r
+max_num_steps <- aver_min_5_interval[aver_min_5_interval==max(aver_min_5_interval)]
+```
+The `max_num_steps` 5-minutes interval contains the maximum number oof steps. 
 
 ## Imputing missing values
 Calculate de total number of rows with NA
@@ -89,7 +95,7 @@ abline(v = mean_steps_per_day_n,  col="red")
 abline(v = median_steps_per_day_n, col="green")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 By looking at the both histograms with and without NAs there is not a much difference with respect to the shape and also the mean and the median do not change to much.
 
@@ -131,9 +137,9 @@ xyplot(steps ~ interval | week_days, data=steps_per_day_n, type = "l", layout = 
     xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 ##Conclusions
-The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical anlysis have to be conducted to determined if these differences are significant.
+The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical analysis have to be conducted to determined if these differences are significant.
 
 Thank you for reading this document!
