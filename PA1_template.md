@@ -1,4 +1,12 @@
-# Reproducible Research: Peer Assessment 1. Personal activity monitoring device data analysis.
+---
+title: 'Reproducible Research: Peer Assessment 1. Personal activity monitoring device
+  data analysis.'
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
+  word_document: default
+---
 ##Introduction
 Data from personal activity monitoring device was collected every 5 minutes through out the day. There is two months of data from an anonymous individual collected during two months in 2012,  October and November. In particular the number of steps taking by the individuals was recorded. Data analysis of it is reresented in this document.
 ##Synopsis
@@ -25,7 +33,7 @@ abline(v = mean_steps_per_day,  col="red")
 abline(v = median_steps_per_day, col="green")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 
 ## What is the average daily activity pattern?
@@ -41,7 +49,7 @@ aver_min_5_interval <- unlist(lapply(min_5_interval, function(x){ mean(x$steps)}
 plot(names(aver_min_5_interval), aver_min_5_interval, xlab = "5 minutes interval", ylab="Average number of steps", type= "l",  col = "blue", main = "Averaged of steps taking every 5 min across all days ")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 2. Which 5-minute interval, on average accross all days in the dataset, contains the maximum number of steps?
 
 ```r
@@ -95,7 +103,7 @@ abline(v = mean_steps_per_day_n,  col="red")
 abline(v = median_steps_per_day_n, col="green")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 By looking at the both histograms with and without NAs there is not a much difference with respect to the shape and also the mean and the median do not change to much.
 
@@ -137,7 +145,7 @@ xyplot(steps ~ interval | week_days, data=steps_per_day_n, type = "l", layout = 
     xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
 
 ##Conclusions
 The data shows that is a tendency for the persons to walk more during the weekend as can be noticed from the contrasting plots between weekdays and weekend. However, statistical analysis have to be conducted to determined if these differences are significant.
