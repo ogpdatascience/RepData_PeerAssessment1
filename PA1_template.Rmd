@@ -2,10 +2,10 @@
 title: 'Reproducible Research: Peer Assessment 1. Personal activity monitoring device
   data analysis.'
 output:
-  word_document: default
-  pdf_document: default
   html_document:
     keep_md: yes
+  pdf_document: default
+  word_document: default
 ---
 ##Introduction
 Data from personal activity monitoring device was collected every 5 minutes through out the day. There is two months of data from an anonymous individual collected during two months in 2012,  October and November. In particular the number of steps taking by the individuals was recorded. Data analysis of it is reresented in this document.
